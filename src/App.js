@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// // import logo from './logo.svg';
+// // import './App.css';
+// import { BentoGrid } from './components/ui/bento';
+
+// function App() {
+//   return (
+//     <div className="bg-black w-100 h-100 p-auto m-auto">
+//       <BentoGrid />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+import { BentoGridSecondDemo } from './components/BentoGrid';
+// import { FloatingNav } from './components/ui/floating-nav';
+import Header from './components/ui/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-black">
+      {/* <FloatingNav navItems={['Home','Login']}/> */}
+      <Header />
+      <BentoGridSecondDemo/>
     </div>
   );
 }
 
 export default App;
+
+
+
