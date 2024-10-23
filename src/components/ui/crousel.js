@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { ChevronLeft } from 'lucide-react';
 
-const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Carousel = ({ currentIndex, setCurrentIndex }) => {
+  // const [currentIndex, setCurrentIndex] = useState(0);
 
   // Array of image paths corresponding to values 1 to 7
   const images = [
