@@ -16,6 +16,23 @@ import Carousel from "./ui/crousel";
 // import Image from "next/image";
 
 export function BentoGridSecondDemo() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const items = [
+    {
+      header: <TrainSeats numSeats={currentIndex + 1} />, // Pass currentIndex + 1 to TrainSeats
+      className: "md:col-span-2",
+    },
+    {
+      header: <SkeletonOne />,
+      className: "md:col-span-1",
+    },
+    {
+      header: <SkeletonThree currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />, // Pass currentIndex and setCurrentIndex to SkeletonThree
+      className: "md:col-span-3",
+    },
+  ];
+
   return (
     (<BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
@@ -93,14 +110,14 @@ const SkeletonOne = () => {
   );
 };
 
-const SkeletonFour = () => {
+const SkeletonFour = ({currentIndex}) => {
   return (
-    <TrainSeats numSeats={"6"}/>
+    <TrainSeats numSeats={currentIndex+1}/>
   );
 };
 
-const SkeletonThree = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const SkeletonThree = ({currentIndex, setCurrentIndex}) => {
+  // const [currentIndex, setCurrentIndex] = useState(0);
 
   const arr = [
     <div className="p-1 rounded-lg shadow-md text-white">
@@ -147,19 +164,4 @@ const SkeletonThree = () => {
 };
 
 
-const items = [
-  {
-    header: <SkeletonFour />,
-    className: "md:col-span-2",
-    // icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    header: <SkeletonOne />,
-    className: "md:col-span-1",
-    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    header: <SkeletonThree />,
-    className: "md:col-span-3",
-  },
-];
+
